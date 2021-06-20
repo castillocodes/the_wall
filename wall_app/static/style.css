@@ -1,0 +1,28 @@
+body{
+    background-color: bisque;
+}
+
+.wrapper{
+    background-color: bisque;
+}
+
+.col5 {
+    margin: 20px;
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+button.btn.btn_primary{
+    background-color: green;
+    color: white;
+}
+
+.green{
+    color:green;
+}
+
+.errors{
+    color: red;
+    font-weight: bold;
+}

@@ -3,10 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=W, initial-scale=1.0">
-    <title>Welcome!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/style.css"/>
+    <title>Login</title>
 </head>
 <body>
-    Welcome!
+    <div class="wrapper">
+        <div class="row">
+            <div class="col5">
+                <h1>Register</h1>
+                <form action="/register" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="fname">First Name:</label>
+                        <input name="fname" type="text">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="lname">Last Name:</label>
+                        <input name="lname" type="text">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input name="email" type="text">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="pw">Password:</label>
+                        <input name= "pw" type="password">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="confpw">Confirm Password:</label>
+                        <input name= "confpw" type="password">
+                    </div>
+                    <br>
+                    <div class="form_group">
+                        <button class="btn btn_primary" type="submit">Register</button>
+                        {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                        <li class="errors">
+                            {{ message }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    </div>
+                </form>
+            </div>
+            <div class="col5">
+                <h1>Login</h1>
+                <form action="/login" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input name="email" type="text">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="pw">Password:</label>
+                        <input name="pw" type="password">
+                    </div>
+                    <br>
+                    <div class="form_group">
+                        <button class="btn btn_primary" type="submit">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>   
 </body>
 </html>

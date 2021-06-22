@@ -7,7 +7,7 @@ def index(request):
     return render (request, "index.html")
 
 def success(request):
-    if 'user' not in request.sesssion:
+    if 'user' not in request.session:
         return redirect('/')
     context = {
         'wall_messages': Wall_Message.objects.all()
@@ -48,10 +48,10 @@ def post_mess(request):
     Wall_Message.objects.create(message=request.POST['mess'], poster=User.objects.get(id=request.session['id']))
     return redirect('/success')
 
-def post_comment(request):
+def add_comment(request, id):
     poster = User.objects.get(id=request.session['id'])
     message = Wall_Message.objects.get(id=id)
-    Comment.objects.create(comment=request.POST['comment'], poster=poster, message=message)
+    Comment.objects.create(comment=request.POST['comment'], poster=poster, wall_message=message)
     return redirect('/success')
 
 def profile(request, id):

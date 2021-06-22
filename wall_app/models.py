@@ -8,7 +8,7 @@ class UserManager(models.Manager):
         email_checker = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
         if len(postData['pw']) < 8:
             errors['pw'] = "Your password must be at least 8 characters long."
-        if len(postData['fname']) < 2 or len(postdata['lname']) < 2:
+        if len(postData['fname']) < 2 or len(postData['lname']) < 2:
             errors['name'] = "Your name must be at least 2 characters long."
         if not email_checker.match(postData['email']):
             errors['email'] = 'Must enter a valid email.'

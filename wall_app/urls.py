@@ -11,6 +11,6 @@ urlpatterns = [
     path('post_comment/<int:id>', views.post_comment),
     path('user_profile/<int:id>', views.profile),
     path('like/<int:id>', views.add_like),
-    path('delete/<ind:id>', views.delete_comment),
+    path('delete/<int:id>', views.delete_comment),
     path('edit/<int:id>', views.edit)
 ]
